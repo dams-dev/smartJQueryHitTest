@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>e-smartdev : hittest plugin</title>
+		<meta name="description" content="" />
+		<meta name="author" content="damien" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+		<script src="../src/jquery-1.7.1.min.js"></script>
+		<script src="../src/e-smart-hittest-jquery.min.js"></script>
+		<script src="../src/jquery-ui-1.8.21.custom.min.js"></script>
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script language="JavaScript">
+			$(document).ready(function() {
+				
+				/**
+			    * check mouse hitTest 
+			    */
+			    $("#mouseHitTestPluginContainer").mousemove(function(e){
+			    	 //  plugin call 
+				      var hit = $('#mouseImgHittest').hitTestPoint({"x":e.pageX,"y":e.pageY, "transparency":true});
+				      displayHitTestResult($("#hitTestMousePosition"), $("#hitTestMouseCollisionState"), hit, {"x":e.pageX, "y":e.pageY});
+			   });
+			   
+			   /**
+			    * check object hitTest 
+			    */
+			   $(".objectHittestImg").draggable({
+				   drag: function(event, ui) {
+				   		 var targetObject = $(event.target);
+				   		 var objectPosition = $(event.target).offset();
+				   		 var otherObject = targetObject.attr("id") == "objectHittest1" ? $('#objectHittest2') : $('#objectHittest1');
+				   		 //  plugin call 
+				   		 var hit = targetObject.objectHitTest({"object":otherObject, "transparency":true});
+				   		 displayHitTestResult($("#hitTestObjectPosition"), $("#hitTestObjectCollisionState"), hit, {"x":objectPosition.left, "y":objectPosition.top});
+			   }
+			  });
+			  /**
+			   * display hitTest result 
+			   */
+			  function displayHitTestResult(jqElementPosition, jqElementYesNo, hit, pos){
+			    	 jqElementPosition.html('x='+Math.round(pos.x)+', y='+Math.round(pos.y));
+			    	 var hitText = 'NO';
+				     var hitColor = '#FF0000';
+				     if(hit){
+				      	hitText = "YES";
+				    	hitColor = '#00B600';
+				     }
+				     jqElementYesNo.html(hitText);
+				     jqElementYesNo.css({'color':hitColor});
+			  }
+			  
+			});   
+		</script>
+	</head>
+	<body>
+		<header id="header">
+			<div id="headerContainer">
+				<div id="logo">
+					<a href="http://e-smartdev.com"><img src="assets/logo.png" /></a>
+				</div>
+				<div id="pluginName">
+					<h1>HitTest JQuery plugin</h1>
+				</div>
+			</div>
+		</header>
+		<div id="page">
+			<div id="pageContent">
+				<p id="pluginDetails">This is a plugin demonstration page, for documentation visit : <a href="http://e-smartdev.com/#!jsPluginList/hittestJQuery" target="blank" id="websiteLink">e-smartdev.com</a> </p>
+				<div class="demoContainer">
+					<h2>Mouse detection : </h2>
+					<div class="pluginHitTestDemoContainer">
+						<div class="demoHitTestContainer" id="mouseHitTestPluginContainer">
+							<div class="logDemoTest">
+								<p>Position : <span id="hitTestMousePosition">x=000, y=000</span></p>
+								<p>Collision : <span id="hitTestMouseCollisionState" style="color:red;">NO</span></p>
+							</div>
+							<img id="mouseImgHittest" src="assets/ring.png"/>
+						</div>
+					</div>	
+				</div>
+				<div class="demoContainer">
+					<h2>Objects collision : </h2>
+					<div class="pluginHitTestDemoContainer">
+						<div class="demoHitTestContainer">
+							<div class="logDemoTest">
+								<p>Position : <span id="hitTestObjectPosition">x=000, y=000</span></p>
+								<p>Collision : <span id="hitTestObjectCollisionState" style="color:red;">NO</span></p>
+							</div>
+							<img id="objectHittest1" src="assets/hittestObject1.png" class="objectHittestImg"/>
+							<img id="objectHittest2" src="assets/hittestObject2.png" class="objectHittestImg"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+		</footer>
+	</body>
+</html>

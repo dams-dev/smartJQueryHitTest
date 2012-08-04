@@ -1,3 +1,15 @@
+/*	
+ *	jQuery hitTest plugin
+ *	Demo and documentation:
+ *	http://e-smartdev.com/#!jsPluginList/hittestJQuery
+ *	
+ *	Copyright (c) 2012 Damien Corzani
+ *	http://e-smartdev.com/
+ *
+ *	Dual licensed under the MIT and GPL licenses.
+ *	http://en.wikipedia.org/wiki/MIT_License
+ *	http://en.wikipedia.org/wiki/GNU_General_Public_License
+ */
 (function( $ ){
 
  /**
@@ -112,7 +124,8 @@
   };
   
   /**
-   * retourne le canvas d'un element image ou canvas 
+   * return a canvas of an image or a canvas element
+   * if the given element is not a canvas or an image return null  
    */
   function getCanvasFromElement(jqElement){
   	
@@ -146,15 +159,28 @@ function Rectangle(x, y, width, height) {
     this.y = y;
     this.width = width;
     this.height = height;
+    /*
+     * return rectangle informations into a string
+     */
     this.toString = function() {
 	    return '(x=' + this.x + ', y=' + this.y + ', width=' + this.width +', height=' +this.height+')';
 	  };
+	/*
+	 * check if a given point is contain into the rectangle
+	 */  
     this.rectContainsPoint = function (pointX, pointY){
 		return (pointX>=this.x && pointX<=this.x+this.width && pointY>=this.y && pointY<=this.y+this.height);	
 	}
+	/*
+	 * check if a rectangle intersect with another ome
+	 */
 	this.intersects = function(rect){
 		return (this.x <= rect.x + rect.width && rect.x <= this.x + this.width && this.y <=rect.y + rect.height && rect.y <= this.y + this.height);
 	}
+	/*
+	 * return the intersection of two rectangle as a rectangle
+	 * return null if there is not intersection
+	 */
 	this.intersection = function(rect){
 		  var highestX = Math.max(this.x, rect.x);
 		  var lowestX = Math.min(this.x + this.width, rect.x + rect.width);
