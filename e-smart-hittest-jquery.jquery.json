@@ -1,0 +1,29 @@
+{
+  "name": "e-smart-hittest-jquery",
+  "title": "HitTesting jquery plugin",
+  "description": "Test dom objects collision and coordinates hitTest.The collision detection works on mobile and on desktop. It manage image and canvas transparency on rencent web browsers.",
+  "keywords": [
+    "hitTest",
+    "collision",
+    "mobile",
+    "transparency"
+  ],
+  "version": "1.0.0",
+  "author": {
+    "name": "Damien Corzani",
+    "url": "http://e-smartdev.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/e-smartdev/smartJQueryHitTest/blob/master/MIT-License.txt"
+    }
+  ],
+  "bugs": "https://github.com/e-smartdev/smartJQueryHitTest/issues",
+  "homepage": "http://e-smartdev.com/#!jsPluginList/hittestJQuery",
+  "docs": "http://e-smartdev.com/#!jsPluginList/hittestJQuery",
+  "download": "https://github.com/e-smartdev/smartJQueryHitTest/zipball/master",
+  "dependencies": {
+    "jquery": ">=1.7.1"
+  }
+}
