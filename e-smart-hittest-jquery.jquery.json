@@ -5,10 +5,12 @@
   "keywords": [
     "hitTest",
     "collision",
+    "jquery",
+    "canvas",
     "mobile",
     "transparency"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Damien Corzani",
     "url": "http://e-smartdev.com"
@@ -22,6 +24,7 @@
   "bugs": "https://github.com/e-smartdev/smartJQueryHitTest/issues",
   "homepage": "http://e-smartdev.com/#!jsPluginList/hittestJQuery",
   "docs": "http://e-smartdev.com/#!jsPluginList/hittestJQuery",
+  "demo": "http://e-smartdev.com/#!jsPluginList/hittestJQuery",
   "download": "https://github.com/e-smartdev/smartJQueryHitTest/zipball/master",
   "dependencies": {
     "jquery": ">=1.7.1"

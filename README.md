@@ -1,5 +1,4 @@
-HitTesting jquery plugin
-========================
+#HitTesting jQuery plugin
 
 This plugin allow to test dom objects collision and coordinates hitTest. The collision detection works on mobile and on desktop. It manage image and canvas transparency on rencent web browsers.
 
@@ -7,55 +6,58 @@ The transparency is manage on canvas elements compatible web browsers. (on old w
 
 For live examples and more explanations visit : [http://e-smartdev.com/#!jsPluginList/hittestJQuery](http://e-smartdev.com/#!jsPluginList/hittestJQuery)
 
-hitTestPoint(options):Boolean
------------------------------
+##hitTestPoint(options):Boolean
 
-This function find if one dom JQuery object is under given coordinates.
+This function find if one dom jQuery object is under given coordinates.
 
-Sample code:
+```js
+$('#domElementIdToTest').hitTestPoint({"x":positionX,"y":positionY, "transparency":true});
+```
 
-**$('#domElementIdToTest').hitTestPoint({"x":positionX,"y":positionY, "transparency":true});**
+If the point ({x:positionX, y:positionY}) hitTest with id="domElementIdToTest" object then the function return "true", otherwise "false". (in this example, pixel transparency is manage)
 
-If the point ({x:positionX, y:positionY}) hitTest with id="domElementIdToTest" object then the function return "true", otherwise "false". (in this example pixel transparency is manage)
+##objectHitTest(options):Boolean
 
-objectHitTest(options):Boolean
-------------------------------
+This function find if one jQuery dom object hitTest with another one.
 
-This function find if one JQuery dom object hitTest with another one.
-
-Sample code:
-
-**$('#domElementIdToTest').objectHitTest({"object":$("$domElementToHitTestWith"), "transparency":true});**
+```js
+$('#domElementIdToTest').objectHitTest({"object":$("$domElementToHitTestWith"), "transparency":true});
+```
 
 If the id="domElementToHitTestWith" object hitTest with id="domElementIdToTest" object, then the function return "true", otherwise "false". (in this example pixel transparency is manage)
 
-Rectangle class
----------------
+##Rectangle class
 
-This class allow to create a graphical rectangle. The instance properties of the rectangle are: x, y, width, height.
+This class allow to create a graphical rectangle. The functions of this class allow to manage several graphical tests on rectangle shapes. 
 
-The functions of this class allow to manage several graphical tests on rectangle shapes.
+Create a rectangle instance:
+```js
+var rectangle = new Rectangle(0, 0, 100, 100); // (x:'rectX', y:'rectY', width:'rectWidth', height:'rectHeigt')
+```
+You could access the rectangle properties like this: 
+```js
+console.log("x : "+rectangle.x+", y : "+rectangle.y+", width : "+rectangle.width+", height : "+rectangle.height).
+```
+__functions:__
 
-Sample code:
+```js
+rectContainsPoint(pointX, pointY):Boolean // Determines whether the rectangle contains the given point
+```
 
-**var rectangle = new Rectangle(0, 0, 100, 100);**
+```js
+intersects(rect):Boolean // Determines whether the rectangle intersect with the given rectangle
+```
 
-You could access the renctangle properties like this: console.log("x : "+rectangle.x+", y : "+rectangle.y+", width : "+rectangle.width+", height : "+rectangle.height).
-
-functions: 
-
-**rectContainsPoint(pointX, pointY):Boolean** - Determines whether the rectangle contains the given point
-
-**intersects(rect):Boolean** - Determines whether the rectangle intersect with the given rectangle
-
-**intersection(rect):Rectangle** - Determines the intersection between the two rectangles
+```js
+intersection(rect):Rectangle // Determines the intersection between the two rectangles
+```
 
 getRect():Rectangle
 -------------------
-This function return a rectangle containing the JQuery object coordinates.
+This function return a rectangle containing the jQuery object coordinates.
 
-Sample code:
+```js
+var rectangle = $('#domElementId').getRect();
+```
 
-**var rectangle = $('#domElementId').getRect();**
-
-This function call create a rectangle containing the (id="domElementId") JQuery object globals coordinates. 
+This function call create a rectangle containing the (id="domElementId") jQuery object globals coordinates. 
