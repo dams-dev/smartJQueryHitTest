@@ -32,20 +32,26 @@ This class allow to create a graphical rectangle. The functions of this class al
 
 Create a rectangle instance:
 ```js
-var rectangle = new Rectangle(0, 0, 100, 100); // (x:'rectX', y:'rectY', width:'rectWidth', height:'rectHeigt')
+var rectangle = new Rectangle(0, 0, 100, 100); /* (x:'rectX', 
+                                                   y:'rectY', 
+                                                   width:'rectWidth', 
+                                                   height:'rectHeigt')*/
 ```
 You could access the rectangle properties like this: 
 ```js
-console.log("x : "+rectangle.x+", y : "+rectangle.y+", width : "+rectangle.width+", height : "+rectangle.height).
+console.log("x : "+rectangle.x+
+          ", y : "+rectangle.y+
+          ", width : "+rectangle.width+
+          ", height : "+rectangle.height).
 ```
 __functions:__
 
 ```js
-rectContainsPoint(pointX, pointY):Boolean // Determines whether the rectangle contains the given point
+rectContainsPoint(pointX, pointY):Boolean // Determines if the rectangle contains the given point
 ```
 
 ```js
-intersects(rect):Boolean // Determines whether the rectangle intersect with the given rectangle
+intersects(rect):Boolean // Determines if the rectangle intersect with the given rectangle
 ```
 
 ```js
