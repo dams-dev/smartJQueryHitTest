@@ -87,7 +87,7 @@
 
     // if we don't whant to check the transparency we return just the rectangle test'
     if(!settings.transparency || (!($(elementTarget).is("img")) && !($(elementTarget).is("canvas"))))
-    	return rectHitTest;
+    	return rectsInstersects;
     // if the object rectangle don't hitTest return false
     if(!rectsInstersects)
     	return false;
